@@ -21,6 +21,7 @@
   --card-background-color: #FFFFFF;
 
   --icon-button-contour-color: #000000;
+  font-variation-settings: 'wght' 400, 'wdth' 100;
 
 }
 
@@ -69,6 +70,7 @@
   --card-background-color: #000000;
 
   --icon-button-contour-color: #00CC14;
+  font-variation-settings: 'wght' 465, 'wdth' 100;
 
 }
 
