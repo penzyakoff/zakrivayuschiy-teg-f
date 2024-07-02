@@ -1,0 +1,31 @@
+@use '../globals/variables.scss';
+
+
+.page {
+
+  font-family: var(--main-font), sans-serif;
+  font-variation-settings: 'wgth' var(--card-main-font-weight);
+
+  background-color: var(--background-color);
+  color: var(--accent-color);
+
+  min-inline-size: 320px;
+  min-block-size: 100dvb;
+  
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  inline-size: 1px;
+  block-size: 1px;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

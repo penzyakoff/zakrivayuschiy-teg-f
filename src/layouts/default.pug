@@ -1,0 +1,30 @@
+block variables
+
+doctype html
+html(lang="ru")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    meta(name="color-scheme" content="dark light")
+    title=title
+    //- block because favicon-theme-style not working with it
+    //-link(rel="icon", href="/images/images/favicon.ico", sizes="any") 
+    link(rel="icon", href="/images/svg/favicon.svg", type="image/svg+xml")
+    link(rel="stylesheet", href="/bundle.css")
+    link(rel="stylesheet", href="/index.css")
+  body.page
+
+    //- Header
+    include ../components/header/header.pug
+    +header
+
+    //- Main
+    block content 
+
+    //- Footer
+    include ../components/footer/footer.pug
+    include ../components/dialog/dialog.pug
+    +footer
+
+     //- Scripts block
+    block scripts

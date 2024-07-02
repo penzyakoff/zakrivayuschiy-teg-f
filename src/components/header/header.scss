@@ -1,0 +1,144 @@
+.header {
+
+  inline-size: min(698px, 99%);
+  margin: 48px auto 100px auto;
+  padding: 121px 0 17px 0;
+
+  font-family: var(--accent-font, sans-serif);
+  font-weight: var(--card-main-font-weight);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--accent-color);
+  background-color: var(--background-color);
+ 
+  border: 2px solid var(--accent-color);
+  
+}
+
+@media(width > 380px) {
+  .header {
+    margin-block-start: 33px;
+     
+  }
+}
+
+.header__title {
+
+  text-transform: uppercase;
+  margin-block-end: 23px;
+  font-size: clamp(14px, 2.5vw, 18px);
+  justify-self: center;
+}
+
+.header__title-accent {
+
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  margin-bottom: 20px;
+  color: var(--accent-color);
+}
+
+@media(width > 380px) {
+  .header__title {
+    font-size: clamp(18px, 2.5vw, 23px);
+  
+  }
+
+  .header__title-accent {
+    margin-block-start: 15px;
+    margin-block-end: 4px;
+  }
+
+}
+
+.theme-menu {
+
+  &__list {
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    
+  }
+
+  &__item {
+
+    font-weight: inherit;
+    font-size: var(--header-menu-text-size);
+    text-transform: uppercase;
+
+  }
+
+  &__button {
+    position: relative;
+    border: none;
+    outline: none;
+    margin-left: 21px;
+    margin-bottom: 7px;
+    padding: 0;
+    text-transform: uppercase;
+    background-color: transparent;
+    transition: color 0.3s;
+    transition-timing-function: ease;
+    cursor: pointer;
+  }
+
+  &__button:hover {
+    color: var(--accent-color);
+  }
+
+  &__button::after {
+    content: '';
+    position: absolute;
+    display: block;
+    background-color: var(--accent-color);
+    opacity: 60%;
+    transition: 
+      transform 0.5s, 
+      color 0.5s;
+    transition-timing-function: ease;
+    transform: scaleX(0);
+    transform-origin: left;
+    block-size: 3px;
+    inline-size: 100%;
+    inset-block-end: -3px;
+    inset-inline-start: 0;
+  }
+
+  &__button:focus {
+    outline: none;
+  }
+
+  &__button:focus-visible {
+    color: var(--accent-color);
+    opacity: 60%;
+  }
+
+  &__button:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  &__button:disabled {
+    position: relative;
+    color: var(--accent-color);
+    opacity: 60%;
+    transition: color 0.5s;
+    transition-timing-function: ease;
+    pointer-events: none;
+  }
+
+  &__button:disabled::before {
+    content: '▶';
+    position: absolute;
+    color: var(--accent-color);
+    opacity: 60%;
+    animation: moving 0.5s infinite ease-in-out reverse;
+    inset-inline-start: -20px;
+  }
+}
+
