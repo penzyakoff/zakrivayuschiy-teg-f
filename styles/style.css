@@ -438,7 +438,7 @@
   filter: opacity(0.3) saturate(200%);
 }
 
-@media (prefers-color-scheme: light){
+@media (prefers-color-scheme: light) {
   :root {
     --main-font: "Inter-Variable";
     --accent-font: "PressStart2P-Regular";
@@ -455,7 +455,7 @@
   }
 }
 
-@media (prefers-color-scheme: dark){
+@media (prefers-color-scheme: dark) {
   :root {
     --main-font: "Inter-Variable";
     --accent-font: "PressStart2P-Regular";
@@ -469,7 +469,7 @@
   }
 }
 
-@media (width > 380px){
+@media (width > 380px) {
   .header {
     margin-block-start: 33px;
   }

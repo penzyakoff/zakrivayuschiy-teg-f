@@ -1,41 +1,20 @@
 function changeTheme(theme) {
   document.documentElement.className = '';
-  if (theme === 'auto') {
-    applyAutoTheme();
-  } else {
-    document.documentElement.classList.add(`theme-${theme}`);
-  }
+  document.documentElement.classList.add(`theme-${theme}`);
   localStorage.setItem('theme', theme);
 }
 
-function applyAutoTheme() {
-  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  if (prefersDarkScheme) {
-    document.documentElement.classList.add('theme-dark');
-  } else {
-    document.documentElement.classList.add('theme-light');
-  }
-}
-
 (function initTheme() {
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) {
-    changeTheme(savedTheme);
-  } else {
-    changeTheme('auto');
+  const theme = localStorage.getItem('theme');
+  if (theme) {
+    changeTheme(theme);
   }
 })();
 
-window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', (e) => {
-  const currentTheme = localStorage.getItem('theme');
-  if (currentTheme === 'auto') {
-    applyAutoTheme();
-  }
-});
-
 document.addEventListener('DOMContentLoaded', () => {
+  const root = document.documentElement;
   const themeButtons = document.querySelectorAll('.theme-menu__button');
-  
+
   function setDisabled(theme) {
     themeButtons.forEach((item) => {
       if (item.getAttribute('data-theme') === theme) {
@@ -45,15 +24,19 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-  
-  const currentTheme = localStorage.getItem('theme') || 'auto';
-  setDisabled(currentTheme);
+
+  if ([...root.classList].includes('theme-light')) {
+    setDisabled('light');
+  } else if ([...root.classList].includes('theme-dark')) {
+    setDisabled('dark');
+  } else {
+    setDisabled('auto');
+  }
 
   themeButtons.forEach((button) => {
     button.onclick = () => {
-      const selectedTheme = button.getAttribute('data-theme');
-      changeTheme(selectedTheme);
-      setDisabled(selectedTheme);
+      changeTheme(button.getAttribute('data-theme'));
+      setDisabled(button.getAttribute('data-theme'));
     };
   });
 });
