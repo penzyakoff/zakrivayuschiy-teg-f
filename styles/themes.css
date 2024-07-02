@@ -1,6 +1,95 @@
-/* В этом файле вы опишете значения переменных в разных цветовых схемах.
-Придерживайтесь такого именования классов:
-✦ theme-dark — класс тёмной темы
-✦ theme-light — класс светлой темы
-✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
-*/
+
+@charset 'UTF-8';
+
+:root.theme-light {
+  --main-font: 'Inter-Variable';
+  --accent-font: 'PressStart2P-Regular';
+  --card-main-font-weight: 400;
+  --card-heading-font-weight: 700;
+
+  --background-color: #FFFFFF;
+  --accent-color: #000000;
+  --button-text-color: #FFFFFF;
+
+  --background-image: 
+  repeating-linear-gradient(to right, #d3d3d3, transparent 2px),
+  repeating-linear-gradient(to bottom, #d3d3d3, transparent 2px),
+  linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a);
+
+  
+
+  --card-background-color: #FFFFFF;
+
+  --icon-button-contour-color: #000000;
+
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --main-font: 'Inter-Variable';
+    --accent-font: 'PressStart2P-Regular';
+    --card-main-font-weight: 400;
+    --card-heading-font-weight: 700;
+  
+    --background-color: #FFFFFF;
+    --accent-color: #000000;
+    --button-text-color: #FFFFFF;
+
+    --background-image: 
+    repeating-linear-gradient(to right, #d3d3d3, transparent 2px),
+    repeating-linear-gradient(to bottom, #d3d3d3, transparent 2px),
+    linear-gradient(to bottom,#e7e7e7 0.01%, #1a1a1a);
+
+    
+
+    --card-background-color: #FFFFFF;
+
+    --icon-button-contour-color: #000000;
+  }
+}
+
+
+:root.theme-dark {
+  --main-font: 'Inter-Variable';
+  --accent-font: 'PressStart2P-Regular';
+  --card-main-font-weight: 465;
+  --card-heading-font-weight: 785;
+  
+  --background-color: #000000;
+  --accent-color: #00CC14;
+  --button-text-color: #00CC14;
+
+  --background-image: 
+  repeating-linear-gradient(to right, #000, transparent 2px),
+  repeating-linear-gradient(to bottom, #000, transparent 2px),
+  linear-gradient(to bottom, #007f0c 0.01%, #004306);
+
+  
+
+  --card-background-color: #000000;
+
+  --icon-button-contour-color: #00CC14;
+
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-font: 'Inter-Variable';
+    --accent-font: 'PressStart2P-Regular';
+    --card-main-font-weight: 465;
+    --card-heading-font-weight: 785;
+    
+    --background-color: #000000;
+    --accent-color: #00CC14;
+    --button-text-color: #00CC14;
+
+    
+
+    --card-background-color: #000000;
+
+    --icon-button-contour-color: #00CC14;
+  }
+}
+
+
+

@@ -10,6 +10,9 @@
 
 body {
   margin: 0;
+  background-image: var(--background-image);
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 h1,

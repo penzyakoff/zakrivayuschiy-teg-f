@@ -1,20 +1,499 @@
-/* Здесь вы напишете основную часть стилей страницы.
 
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ theme-dark — класс тёмной темы
-✦ theme-light — класс светлой темы
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-
-Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
-
-*/
 
 .page {
+  font-family: var(--main-font), sans-serif;
+  font-variation-settings: "wgth" var(--card-main-font-weight);
+  background-color: var(--background-color);
+  color: var(--accent-color);
   min-inline-size: 320px;
   min-block-size: 100dvb;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.header {
+  inline-size: min(698px, 99%);
+  margin: 48px auto 100px auto;
+  padding: 121px 0 17px 0;
+  font-family: var(--accent-font, sans-serif);
+  font-weight: var(--card-main-font-weight);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-color);
+  background-color: var(--background-color);
+  border: 2px solid var(--accent-color);
+}
+
+.header__title {
+  text-transform: uppercase;
+  margin-block-end: 23px;
+  font-size: clamp(14px, 2.5vw, 18px);
+  justify-self: center;
+}
+
+.header__title-accent {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  margin-bottom: 20px;
+  color: var(--accent-color);
+}
+
+.theme-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.theme-menu__item {
+  font-weight: inherit;
+  font-size: var(--header-menu-text-size);
+  text-transform: uppercase;
+}
+
+.theme-menu__button {
+  position: relative;
+  border: none;
+  outline: none;
+  margin-left: 21px;
+  margin-bottom: 7px;
+  padding: 0;
+  text-transform: uppercase;
+  background-color: transparent;
+  transition: color 0.3s;
+  transition-timing-function: ease;
+  cursor: pointer;
+}
+
+.theme-menu__button:hover {
+  color: var(--accent-color);
+}
+
+.theme-menu__button::after {
+  content: "";
+  position: absolute;
+  display: block;
+  background-color: var(--accent-color);
+  opacity: 60%;
+  transition: transform 0.5s, color 0.5s;
+  transition-timing-function: ease;
+  transform: scaleX(0);
+  transform-origin: left;
+  block-size: 3px;
+  inline-size: 100%;
+  inset-block-end: -3px;
+  inset-inline-start: 0;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+}
+
+.theme-menu__button:focus-visible {
+  color: var(--accent-color);
+  opacity: 60%;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.theme-menu__button:disabled {
+  position: relative;
+  color: var(--accent-color);
+  opacity: 60%;
+  transition: color 0.5s;
+  transition-timing-function: ease;
+  pointer-events: none;
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  color: var(--accent-color);
+  opacity: 60%;
+  animation: moving 0.5s infinite ease-in-out reverse;
+  inset-inline-start: -20px;
+}
+
+.card {
+  width: min(698px, 99%);
+  margin: 0 auto 50px auto;
+  background-color: var(--card-background-color);
+  border: 2px solid var(--accent-color);
+}
+
+.card__header {
+  padding-block-start: 4px;
+  padding-inline: 9px;
+  padding-block-end: 4px;
+  font-size: 18px;
+  font-variation-settings: "wght" var(--main-font-bold-weight), "wdth" 100, "opsz" 0;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.card__image-container {
+  position: relative;
+}
+
+.card__image-text {
+  position: absolute;
+  z-index: 1;
+  opacity: 60%;
+  color: var(--accent-color);
+  font-family: var(--accent-font), sans-serif;
+  font-weight: var(--main-font-weight);
+  font-size: 14px;
+  text-shadow: 1px 0 0 var(--card-background-color), 1px 0 0 var(--card-background-color), 0 1px 0 var(--card-background-color), 0 1px 0 var(--card-background-color), -1px 0 0 var(--card-background-color), -1px 0 0 var(--card-background-color), 0 -1px 0 var(--card-background-color), 0 -1px 0 var(--card-background-color);
+  mix-blend-mode: hard-light;
+  inset-inline-end: 10px;
+  inset-block-start: 20px;
+}
+
+@supports (text-stroke: 1px var(--card-background-color)) or (-webkit-text-stroke: 1px var(--card-background-color)) {
+  .card__image-text {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--card-background-color);
+  }
+}
+
+.card__image {
+  display: block;
+  object-fit: cover;
+  inline-size: 100%;
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 25px;
+  border-top: 2px solid var(--accent-color);
+}
+
+.card__text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  margin-block-end: 21px;
+}
+
+.card__text {
+  font-size: 18px;
+  line-height: 21px;
+  font-variation-settings: "wght" var(--main-font-weight), "wdth" 100, "opsz" 0;
+}
+
+.card__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.card__icon-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: none;
+  outline: 2px solid transparent;
+  outline-offset: -2px;
+  background-color: transparent;
+  block-size: 38px;
+  cursor: pointer;
+}
+
+.card__icon-button .like-icon .sparks {
+  opacity: 0;
+}
+
+.card__icon-button .like-icon:hover .core {
+  fill: var(--icon-button-contour-color);
+  transition: fill 0.3s 0.03s linear;
+}
+
+.card__icon-button .like-icon:hover .main-body {
+  fill: var(--icon-button-contour-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.card__icon-button .like-icon:active .core {
+  fill: var(--icon-button-fill-color);
+  transition: fill 0.3s 0.03s linear;
+}
+
+.card__icon-button .like-icon:active .main-body {
+  fill: var(--icon-button-fill-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.card__icon-button .like-icon.is-liked .heart {
+  animation: scaling 0.3s 0.1s ease-in reverse;
+  animation-fill-mode: forwards;
+}
+
+.card__icon-button .like-icon.is-liked .core {
+  fill: var(--icon-button-fill-color);
+  transition: fill 0.3s 0.03s linear;
+}
+
+.card__icon-button .like-icon.is-liked .main-body {
+  fill: var(--icon-button-fill-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.card__icon-button .like-icon.is-liked .contour {
+  fill: var(--icon-button-fill-color);
+  transition: fill 0.3s 0.06s linear;
+}
+
+.card__icon-button .like-icon.is-liked .sparks {
+  animation: opaciting 0.3s 0.1s ease-in reverse;
+}
+
+.card__icon-button .like-icon:not(.is-liked) .contour {
+  fill: var(--icon-button-contour-color);
+  transition: fill 0.1s linear;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid var(--accent-color);
+  transition: outline 0.3s;
+  transition-timing-function: ease;
+}
+
+.card__like-button {
+  padding: 10px 0;
+  inline-size: 130px;
+  block-size: 38px;
+  display: flex;
+  justify-content: center;
+  font-weight: var(--main-font-weight);
+  font-size: 14px;
+  line-height: 90%;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.standard-button {
+  position: relative;
+  border: 2px solid var(--accent-color);
+  transition: box-shadow 0.5s;
+  transition-timing-function: ease-in-out;
+}
+
+.standard-button:focus {
+  outline: none;
+}
+
+.standard-button:focus-visible {
+  box-shadow: 2px 2px 0 2px var(--accent-color);
+}
+
+.standard-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-color: var(--accent-color);
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.standard-button:hover::before {
+  transform: scaleX(1);
+}
+
+.button__text {
+  position: relative;
+  z-index: 2;
+  display: block;
+  color: var(--button-text-color);
+  font-family: var(--accent-font), sans-serif;
+  font-weight: var(--card-main-font-weight);
+  font-size: 14px;
+  line-height: 90%;
+  mix-blend-mode: difference;
+}
+
+.footer {
+  margin: 52px auto 100px;
+  background-color: var(--background-color);
+  max-inline-size: 314px;
+}
+
+.footer__button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 15px 0;
+  text-align: center;
+  background-color: transparent;
+  transition: box-shadow 0.5s;
+  transition-timing-function: ease-in-out;
+  cursor: pointer;
+}
+
+.footer__button:focus {
+  outline: none;
+}
+
+.footer__button-image {
+  position: relative;
+  z-index: 2;
+  color: var(--button-text-color);
+  block-size: 28px;
+  inline-size: auto;
+  mix-blend-mode: difference;
+}
+
+.dialog {
+  position: fixed;
+  inset: 0;
+  border: 2px solid var(--accent-color);
+  padding: 32px 42px;
+  color: var(--accent-color);
+  font-family: var(--accent-font), sans-serif;
+  font-weight: var(--card-main-font-weight);
+  font-size: 14px;
+  line-height: 150%;
+  text-transform: uppercase;
+  background-color: var(--background-color);
+  transition: opacity 0.3s ease-in-out;
+  max-inline-size: 343px;
+}
+
+.dialog__form {
+  display: grid;
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-rows: 1fr fit-content;
+  row-gap: 30px;
+}
+
+.dialog:not([open]) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dialog__button {
+  grid-column: 1/3;
+  grid-row: 2;
+  padding: 9px 0;
+  text-transform: uppercase;
+  background-color: var(--background-color);
+}
+
+.dialog__image {
+  align-self: center;
+  inline-size: 39px;
+  block-size: 39px;
+}
+
+.dialog::backdrop {
+  background-color: #000000;
+  opacity: 75%;
+}
+
+.filter__bright {
+  filter: brightness(130%);
+}
+
+.filter__blur {
+  filter: blur(2px);
+}
+
+.filter__gray {
+  filter: grayscale(1);
+}
+
+.filter__sepia {
+  filter: sepia(100%);
+}
+
+.filter__invert {
+  filter: invert(1);
+}
+
+.filter__saturate {
+  filter: saturate(150%);
+}
+
+.filter__mixed {
+  filter: saturate(300%) hue-rotate(45deg) invert(0.2);
+}
+
+.filter__opacity-saturate {
+  filter: opacity(0.3) saturate(200%);
+}
+
+@media (prefers-color-scheme: light){
+  :root {
+    --main-font: "Inter-Variable";
+    --accent-font: "PressStart2P-Regular";
+    --card-main-font-weight: 400;
+    --card-heading-font-weight: 700;
+    --background-color: #FFFFFF;
+    --accent-color: #000000;
+    --button-text-color: #FFFFFF;
+    --background-image: repeating-linear-gradient(to right, #d3d3d3, transparent 2px),
+    repeating-linear-gradient(to bottom, #d3d3d3, transparent 2px),
+    linear-gradient(to bottom,#e7e7e7 0.01%, #1a1a1a);
+    --card-background-color: #FFFFFF;
+    --icon-button-contour-color: #000000;
+  }
+}
+
+@media (prefers-color-scheme: dark){
+  :root {
+    --main-font: "Inter-Variable";
+    --accent-font: "PressStart2P-Regular";
+    --card-main-font-weight: 465;
+    --card-heading-font-weight: 785;
+    --background-color: #000000;
+    --accent-color: #00CC14;
+    --button-text-color: #00CC14;
+    --card-background-color: #000000;
+    --icon-button-contour-color: #00CC14;
+  }
+}
+
+@media (width > 380px){
+  .header {
+    margin-block-start: 33px;
+  }
+  .header__title {
+    font-size: clamp(18px, 2.5vw, 23px);
+  }
+
+  .header__title-accent {
+    margin-block-start: 15px;
+    margin-block-end: 4px;
+  }
+  .card__body {
+    gap: 6px;
+  }
+  .footer {
+    max-inline-size: 340px;
+  }
+
+  .footer__button {
+    flex-direction: row;
+  }
+
+  .footer__button-image {
+    margin: 0 2px 0 19px;
+    block-size: 20px;
+  }
 }
