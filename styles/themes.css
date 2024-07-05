@@ -1,4 +1,3 @@
-
 @charset 'UTF-8';
 
 :root.theme-light {
@@ -11,44 +10,17 @@
   --accent-color: #000000;
   --button-text-color: #FFFFFF;
 
-  --background-image: 
-  repeating-linear-gradient(to right, #d3d3d3, transparent 2px),
-  repeating-linear-gradient(to bottom, #d3d3d3, transparent 2px),
-  linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a);
+  --background-image: repeating-linear-gradient(90deg, #d3d3d3 0 2px, rgb(0 0 0 / 0) 2px 4px), 
+  repeating-linear-gradient(180deg, #d3d3d3 0 2px, rgb(0 0 0 / 0) 2px 4px), 
+  linear-gradient(180deg, #e7e7e7 0%, #e7e7e7 0.01%, #1a1a1a 100%);
 
-  
+  --main-font-bold-weight: 700px;
 
   --card-background-color: #FFFFFF;
 
   --icon-button-contour-color: #000000;
-  font-variation-settings: 'wght' 400, 'wdth' 100;
 
 }
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --main-font: 'Inter-Variable';
-    --accent-font: 'PressStart2P-Regular';
-    --card-main-font-weight: 400;
-    --card-heading-font-weight: 700;
-  
-    --background-color: #FFFFFF;
-    --accent-color: #000000;
-    --button-text-color: #FFFFFF;
-
-    --background-image: 
-    repeating-linear-gradient(to right, #d3d3d3, transparent 2px),
-    repeating-linear-gradient(to bottom, #d3d3d3, transparent 2px),
-    linear-gradient(to bottom,#e7e7e7 0.01%, #1a1a1a);
-
-    
-
-    --card-background-color: #FFFFFF;
-
-    --icon-button-contour-color: #000000;
-  }
-}
-
 
 :root.theme-dark {
   --main-font: 'Inter-Variable';
@@ -60,17 +32,15 @@
   --accent-color: #00CC14;
   --button-text-color: #00CC14;
 
-  --background-image: 
-  repeating-linear-gradient(to right, #000, transparent 2px),
-  repeating-linear-gradient(to bottom, #000, transparent 2px),
-  linear-gradient(to bottom, #007f0c 0.01%, #004306);
+  --background-image: repeating-linear-gradient(90deg, #000 0 2px, rgb(0 0 0 / 0) 2px 4px), 
+  repeating-linear-gradient(180deg, #000 0 2px, rgb(0 0 0 / 0) 2px 4px), 
+  linear-gradient(180deg, #007f0c 0%, #004306 100%);
 
-  
+  --main-font-bold-weight: 785px;
 
   --card-background-color: #000000;
 
   --icon-button-contour-color: #00CC14;
-  font-variation-settings: 'wght' 465, 'wdth' 100;
 
 }
 
@@ -85,7 +55,11 @@
     --accent-color: #00CC14;
     --button-text-color: #00CC14;
 
-    
+    --background-image: repeating-linear-gradient(90deg, #000 0 2px, rgb(0 0 0 / 0) 2px 4px), 
+    repeating-linear-gradient(180deg, #000 0 2px, rgb(0 0 0 / 0) 2px 4px), 
+    linear-gradient(180deg, #007f0c 0%, #004306 100%);
+
+    --main-font-bold-weight: 785px;
 
     --card-background-color: #000000;
 
