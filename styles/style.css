@@ -398,7 +398,6 @@
   background-color: var(--background-color);
   transition: opacity 0.3s ease-in-out;
   max-inline-size: 342px;
-  opacity: 0.3;
 }
 
 .dialog:not([open]) {
@@ -504,7 +503,6 @@
   .dialog[open] {
     padding: 32px 28px;
     max-inline-size: 354px;
-    opacity: 0.3;
   }
   
   .dialog__form {
