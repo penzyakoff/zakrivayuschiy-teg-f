@@ -12,7 +12,7 @@
   repeating-linear-gradient(180deg, #d3d3d3 0 2px, rgb(0 0 0 / 0) 2px 4px), 
   linear-gradient(180deg, #e7e7e7 0%, #e7e7e7 0.01%, #1a1a1a 100%);
 
-  --main-font-bold-weight: 700px;
+  --main-font-bold-weight: 700;
 
   --card-background-color: #FFFFFF;
 
@@ -34,7 +34,7 @@
   repeating-linear-gradient(180deg, #000 0 2px, rgb(0 0 0 / 0) 2px 4px), 
   linear-gradient(180deg, #007f0c 0%, #004306 100%);
 
-  --main-font-bold-weight: 785px;
+  --main-font-bold-weight: 785;
 
   --card-background-color: #000000;
 
@@ -57,7 +57,7 @@
     repeating-linear-gradient(180deg, #000 0 2px, rgb(0 0 0 / 0) 2px 4px), 
     linear-gradient(180deg, #007f0c 0%, #004306 100%);
 
-    --main-font-bold-weight: 785px;
+    --main-font-bold-weight: 785;
 
     --card-background-color: #000000;
 
