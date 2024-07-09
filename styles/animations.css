@@ -1,22 +1,29 @@
 @keyframes moving {
-    0% {
+    from {
       inset-inline-start: -20px;
     }
   
-    100% {
+    to {
       inset-inline-start: -16px;
     }
   }
   
   @keyframes scaling {
-    100% {
-      transform: scale(1.5);
-      transform-origin: center;
+    from {
+      transform: scale(1);
+    }
+    
+    to {
+      transform: scale(1.15);
     }
   }
   
   @keyframes opaciting {
-    100% {
+    from {
+      opacity: 0;
+    }
+
+    to {
       opacity: 1;
     }
   }
@@ -26,3 +33,5 @@
       fill: var(--icon-button-contour-color);
     }
   }
+
+  

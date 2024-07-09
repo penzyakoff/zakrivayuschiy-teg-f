@@ -1,8 +1,6 @@
-@charset 'UTF-8';
-
 :root.theme-light {
   --main-font: 'Inter-Variable';
-  --accent-font: 'PressStart2P-Regular';
+  --accent-font: 'PressStart2P-Regular', fantasy;
   --card-main-font-weight: 400;
   --card-heading-font-weight: 700;
 
@@ -24,7 +22,7 @@
 
 :root.theme-dark {
   --main-font: 'Inter-Variable';
-  --accent-font: 'PressStart2P-Regular';
+  --accent-font: 'PressStart2P-Regular', fantasy;
   --card-main-font-weight: 465;
   --card-heading-font-weight: 785;
   
@@ -47,7 +45,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --main-font: 'Inter-Variable';
-    --accent-font: 'PressStart2P-Regular';
+    --accent-font: 'PressStart2P-Regular', fantasy;
     --card-main-font-weight: 465;
     --card-heading-font-weight: 785;
     
