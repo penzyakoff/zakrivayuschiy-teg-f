@@ -192,7 +192,7 @@
 .card__text {
   font-size: 18px;
   line-height: 21px;
-  font-variation-settings: "wdth" 100, "opsz" 0;
+  
 }
 
 .card__buttons {
@@ -325,7 +325,9 @@
 }
 
 .standard-button:focus-visible {
-  box-shadow: 2px 2px 0 2px var(--accent-color);
+  box-shadow: 2px 2px 0 var(--accent-color);
+  transition: box-shadow 0.3s;
+  transition-timing-function: ease;
 }
 
 .standard-button::before {
